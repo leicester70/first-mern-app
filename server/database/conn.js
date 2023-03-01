@@ -1,9 +1,10 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const Db = process.env.ATLAS_URI;
 const client = new MongoClient(Db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverApi: ServerApiVersion.v1
 });
 
 var _db;
@@ -11,11 +12,7 @@ var _db;
 module.exports = {
     connectToServer: (callback) => {
         client.connect((err, db) => {
-            // Verify we got a good "db" object
-            if (db) {
-                _db = db.db("sample_mflix");
-                console.log("Successfully connected to MongoDB.");
-            }
+            if (db) { _db = db.db("testing"); console.log("Successfully connected to MongoDB."); }
             return callback(err);
         });
     },
