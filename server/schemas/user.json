@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "emailAddress": {
+            "type": "string",
+            "format": "email",
+            "pattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        },
+        "password": {
+            "type": "string",
+            "minLength": 6
+        },
+        "firstName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "lastName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+        }
+    },
+    "required": [
+        "emailAddress",
+        "password",
+        "firstName",
+        "lastName",
+        "dateOfBirth"
+    ],
+    "additionalProperties": false
+}
