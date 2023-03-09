@@ -1,0 +1,18 @@
+{
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/Include"
+    ],
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "mql_tools.context": true,
+    "files.exclude": {
+        "**/*.ex4": true,
+        "**/*.ex5": true
+    },
+    "C_Cpp.default.forcedInclude": [
+        "c:\\Users\\leste\\.vscode\\extensions\\l-i-v.mql-tools-2.0.0\\data\\mql5_en.mqh"
+    ]
+}
