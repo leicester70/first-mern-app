@@ -2,6 +2,7 @@ import { Button, FormControl, FormLabel, TextField } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from "dayjs";
+import axios from "axios";
 
 import style from '../../styles/forms.module.css'
 
@@ -20,9 +21,10 @@ export default function LandingPage() {
                     break;
 
                 case "date":
+                    if (dayjs(e.target[i].value) >= dayjs().subtract(4745, 'day')) { toast.error("you born yesterday/future? you younger than 13?"); return; }
                     let date = dayjs(e.target[i].value).$d.toString() //save date in dayjs format
-                    if (dayjs(e.target[i].value) >= dayjs().subtract(1, 'day')) { toast.error("you born yesterday?"); }
-                    obj[e.target[i].name] = date;
+                    // obj[e.target[i].name] = date;
+                    obj[e.target[i].name] = e.target[i].value
                     continue;
 
                 case "submit": continue;
@@ -30,11 +32,14 @@ export default function LandingPage() {
                     obj[e.target[i].name] = e.target[i].value
             }
         }
-
-        // check collected
-        console.log(obj)
-
         // post collected to backend
+        axios.post("http://localhost:5000/user/add", obj, {
+            'Content-Type': 'application/json'
+        }).then((response) => {
+            if (response.data.success) { toast.success("gotcha fam 👍🏻") } else {
+                toast.error(`nah man, error. Server said👆🏻"${response.data.serverMessage}"`)
+            }
+        }).catch((error) => { console.log(error) })
 
         // check backend response
 
@@ -44,7 +49,7 @@ export default function LandingPage() {
     return (
         <>
             <h1>Sign Up</h1>
-            <form className={style["form"]} onSubmit={handleSubmit}>
+            <form on className={style["form"]} onSubmit={handleSubmit}>
                 <FormControl className={style["form-control"]}>
                     <FormLabel>First Name</FormLabel>
                     <TextField variant="filled" inputProps={{ 'name': 'firstName' }} required type="text" /></FormControl>
@@ -59,7 +64,7 @@ export default function LandingPage() {
                     <TextField variant="filled" inputProps={{ 'name': 'emailAddress' }} required type="email" /></FormControl >
                 <FormControl className={style["form-control"]}>
                     <FormLabel>Password</FormLabel>
-                    <TextField variant="filled" inputProps={{ 'name': 'password' }} required type="password" />
+                    <TextField variant="filled" inputProps={{ 'name': 'password', 'minlength': "6" }} required type="password" />
                 </FormControl>
                 <FormControl className={style["form-control"]}>
                     <FormLabel>Re-type password</FormLabel>
