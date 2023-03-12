@@ -21,9 +21,9 @@ export default function LandingPage() {
                     break;
 
                 case "date":
-                    if (dayjs(e.target[i].value) >= dayjs().subtract(4745, 'day')) { toast.error("you born yesterday/future? you younger than 13?"); return; }
-                    let date = dayjs(e.target[i].value).$d.toString() //save date in dayjs format
-                    // obj[e.target[i].name] = date;
+                    if (dayjs(e.target[i].value) >= dayjs().subtract(4745, 'day')) {
+                        toast.error("you born yesterday/future? you younger than 13?"); return;
+                    }
                     obj[e.target[i].name] = e.target[i].value
                     continue;
 
@@ -39,11 +39,10 @@ export default function LandingPage() {
             if (response.data.success) { toast.success("gotcha fam 👍🏻") } else {
                 toast.error(`nah man, error. Server said👆🏻"${response.data.serverMessage}"`)
             }
-        }).catch((error) => { console.log(error) })
-
-        // check backend response
+        }).catch((error) => { toast.error("server didn't get back to us 😔, check console for"); console.log(error) })
 
         // update UI
+
     }
 
     return (
