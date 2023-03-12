@@ -2,6 +2,8 @@
 
 No clue for a project idea. Came up with the most mediocre thing possible. A blogging web application. Maybe good features won't make it so mediocre. I started this to learn the MERN technology stack. I'll be following [this guide from MongoDB](https://www.mongodb.com/languages/mern-stack-tutorial) to learn the technology stack.
 
+*for more context of project please see discussion*
+
 edit - 12/3/2023:
 i have strayed away from that blog and went abit my style
 
