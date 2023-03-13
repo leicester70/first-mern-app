@@ -48,7 +48,7 @@ export default function LandingPage() {
     return (
         <>
             <h1>Sign Up</h1>
-            <form on className={style["form"]} onSubmit={handleSubmit}>
+            <form className={style["form"]} onSubmit={handleSubmit}>
                 <FormControl className={style["form-control"]}>
                     <FormLabel>First Name</FormLabel>
                     <TextField variant="filled" inputProps={{ 'name': 'firstName' }} required type="text" /></FormControl>
@@ -63,7 +63,7 @@ export default function LandingPage() {
                     <TextField variant="filled" inputProps={{ 'name': 'emailAddress' }} required type="email" /></FormControl >
                 <FormControl className={style["form-control"]}>
                     <FormLabel>Password</FormLabel>
-                    <TextField variant="filled" inputProps={{ 'name': 'password', 'minlength': "6" }} required type="password" />
+                    <TextField variant="filled" inputProps={{ 'name': 'password', 'minLength': "6" }} required type="password" />
                 </FormControl>
                 <FormControl className={style["form-control"]}>
                     <FormLabel>Re-type password</FormLabel>
