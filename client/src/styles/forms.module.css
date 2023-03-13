@@ -1,0 +1,23 @@
+.form {
+    border-radius: 1vw;
+    padding: 2em;
+    /* background-color: ; */
+    align-items: center;
+    display: grid;
+}
+
+.form button {
+    margin-top: 20px;
+    padding: 1.5em;
+}
+
+.MuiFormControl-root {
+    margin-top: 10px;
+}
+
+.form-control {
+    display: block;
+    margin: 20px 40px;
+    padding-bottom: 50px;
+    min-width: 400px;
+}
